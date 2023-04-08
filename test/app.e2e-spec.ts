@@ -3,8 +3,8 @@ import { Test } from '@nestjs/testing';
 import { AppModule } from './../src/app.module';
 import { PrismaService } from '../src/prisma/prisma.service';
 import * as pactum from 'pactum';
-import { SigninDto, SignupDto } from '../src/auth/dto';
-import { inspect } from 'util';
+import { SignupDto } from '../src/auth/dto';
+// import { inspect } from 'util';
 import { UpdateUserDto } from 'src/user/dto';
 
 describe('AppController (e2e)', () => {
@@ -33,7 +33,7 @@ describe('AppController (e2e)', () => {
   describe('Auth tests and User', () => {
     const signupDto: SignupDto = {
       email: 'vlad@gmail.com',
-      password: '123',
+      password: 'aaa1Aaaa',
     };
     let jwtCookie: string;
     describe('Signup', () => {
@@ -76,7 +76,7 @@ describe('AppController (e2e)', () => {
         .post('/auth/signin')
         .withBody({
           email: 'vlad@gmail.com',
-          password: '123',
+          password: 'aaa1A',
         })
         .expectStatus(200)
         .returns((ctx) => {

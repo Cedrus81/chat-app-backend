@@ -14,10 +14,12 @@ export class SignupDto {
 
   @IsNotEmpty()
   @IsString()
+  @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/)
   password: string;
 
   @IsString()
   @IsOptional()
+  @Matches(/^(?:[A-Za-z]+(?:\s+[A-Za-z]+)*)?$/)
   name?: string;
 
   @IsString()
@@ -26,10 +28,11 @@ export class SignupDto {
 
   @IsString()
   @IsOptional()
+  @Matches(/^.{25,}$|^$/)
   bio?: string;
 
   @IsString()
-  @Matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)
   @IsOptional()
+  // @Matches(/^\+\d{1,4}-\d{10}$/) never tested; might cause problems
   phone?: string;
 }
