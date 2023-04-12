@@ -33,6 +33,5 @@ export class SignupDto {
 
   @IsString()
   @IsOptional()
-  // @Matches(/^\+\d{1,4}-\d{10}$/) never tested; might cause problems
   phone?: string;
 }
