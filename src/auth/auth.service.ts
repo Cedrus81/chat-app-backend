@@ -31,7 +31,6 @@ export class AuthService {
           hash,
         },
       });
-
       delete user.hash;
       const { access_token } = await this.signToken(user.id, user.email);
 

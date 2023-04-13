@@ -21,6 +21,7 @@ export class AuthController {
   ) {
     const { access_token, user } = await this.authService.signup(dto);
     res.cookie('jwt', access_token);
+    console.log('returning user to client');
     return user;
   }
 

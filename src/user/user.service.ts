@@ -27,6 +27,7 @@ export class UserService {
         );
       }
     }
+    console.log(user, dto);
     const updatedUser = await this.prisma.user.update({
       where: {
         id: user.id,
@@ -41,6 +42,7 @@ export class UserService {
       updatedUser.id,
       updatedUser.email
     );
+    console.log('updatedUser', updatedUser);
     return { updatedUser, access_token };
   }
 
